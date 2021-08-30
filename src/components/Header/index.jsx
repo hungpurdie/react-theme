@@ -1,9 +1,10 @@
+import { ThemeContext } from 'context/themes/ThemeProvider';
 import { useContext } from 'react';
-import { ThemeContext } from '../../context/Theme/Theme';
-import ThemeToggle from '../ThemeToggler';
+import ThemeToggle from '../ThemeToggle';
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
+
   return (
     <header className="header">
       <ThemeToggle />

@@ -1,18 +1,17 @@
-//In src/components/themeToggler.js
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../context/Theme/Theme';
+import { ThemeContext } from '../../context/themes/ThemeProvider';
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, handleSetTheme } = useContext(ThemeContext);
 
   const handleThemeToggle = (e) => {
     e.preventDefault();
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    handleSetTheme(theme);
   };
   return (
     <button>
       <button className="theme__toggler" onClick={handleThemeToggle}>
-        <span>{theme === 'light' ? '🌞' : '🔅'}</span>
+        {theme === 'light' ? '🌞' : '🔅'}
       </button>
     </button>
   );

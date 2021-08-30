@@ -1,18 +1,14 @@
-import { useState } from 'react';
+import { ThemeContext } from 'context/themes/ThemeProvider';
+import { useContext } from 'react';
 import './App.css';
-import { ThemeContext } from './context/Theme/Theme';
-
 import HomePage from './Pages/Home';
 
 function App() {
-  const [theme, setTheme] = useState('light');
-
+  const { theme } = useContext(ThemeContext);
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className="App" data-theme={theme}>
-        <HomePage />
-      </div>
-    </ThemeContext.Provider>
+    <div className="App" data-theme={theme}>
+      <HomePage />
+    </div>
   );
 }
 
